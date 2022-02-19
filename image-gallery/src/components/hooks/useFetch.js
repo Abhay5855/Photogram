@@ -16,11 +16,14 @@ const useFetch = (url) => {
           axios.get(url)
           .then((data) => {
                console.log(data);
+               setIsLoading(true);
           })
           .catch((error) => {
               setError(error);
           })
-          
+          .finally(() => {
+               setIsLoading(false);
+          })
             
 
              
@@ -37,5 +40,8 @@ const useFetch = (url) => {
 
   
 }
+
+
+return {url , }
 
 export default useFetch();
